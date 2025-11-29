@@ -19,8 +19,7 @@ import Photography from './pages/portfolio/Photography'
 import Videography from './pages/portfolio/Videography'
 import Events from './pages/portfolio/Events'
 
-
-// Optional: adopt more future flags now to prep for v7
+// 👇 add basename here
 const router = createBrowserRouter(
   [
     {
@@ -34,23 +33,17 @@ const router = createBrowserRouter(
         { path: 'blog/:id', element: <BlogDetail /> },
         { path: 'contact', element: <Contact /> },
 
-        // New nested portfolio sections (each has its own page)
         { path: 'portfolio/ui-design', element: <UiDesign /> },
         { path: 'portfolio/photography', element: <Photography /> },
         { path: 'portfolio/videography', element: <Videography /> },
         { path: 'portfolio/events', element: <Events /> },
-        
       ],
     },
   ],
   {
+    basename: '/Portfolio_Manthan',   // 👈 important for GitHub Pages
     future: {
-      // These are optional but recommended to reduce future warnings:
-      // v7_relativeSplatPath: true,
-      // v7_normalizeFormMethod: true,
-      // v7_fetcherPersist: true,
-      // v7_partialHydration: true,
-      // v7_skipActionErrorRevalidation: true,
+      // v7 flags if you want to enable them later
     },
   }
 )
@@ -59,7 +52,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <RouterProvider
       router={router}
-      future={{ v7_startTransition: true }} // <— Opt-in to silence the warning
+      future={{ v7_startTransition: true }}
     />
   </Provider>
 )
