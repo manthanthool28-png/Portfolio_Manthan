@@ -4,14 +4,23 @@ import imgEvent from '../assets/Event.jpg'
 import imgLandscape from '../assets/Landscape.jpg'
 import imgTravel from '../assets/Portfolio.jpg'
 import imgPortrait from '../assets/Portraits.jpg'
+import imgInteractive from '../assets/Interactive.jpg' 
 
 export default function Portfolio() {
+  const cards = [
+    { img: imgEvent, tag: 'UI Design', num: '01', to: '/portfolio/ui-design' },
+    { img: imgLandscape, tag: 'Photography', num: '02', to: '/portfolio/photography' },
+    { img: imgTravel, tag: 'Videography', num: '03', to: '/portfolio/videography' },
+    { img: imgPortrait, tag: 'Events', num: '04', to: '/portfolio/events' },
+    { img: imgInteractive, tag: 'Interactive Media', num: '05', to: '/portfolio/interactive-media' },
+  ]
+
   return (
     <section className="w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-12">
         {/* Header block */}
         <div className="grid gap-12 lg:grid-cols-12 items-start">
-          {/* Left: giant heading with padding and smaller clamp */}
+          {/* Left: giant heading */}
           <div className="lg:col-span-6">
             <div className="mt-6 pt-2 pb-6 pr-6">
               <h1 className="text-[clamp(2rem,6.2vw,5.25rem)] font-extrabold leading-[1.02] tracking-tight uppercase text-emerald-50 max-w-[18ch]">
@@ -26,42 +35,20 @@ export default function Portfolio() {
             <div className="h-px w-28 bg-emerald-100/60 mb-4" />
             <div className="space-y-6 text-[13.5px] leading-relaxed text-emerald-50/90">
               <div>
-                <div className="font-semibold uppercase tracking-widest text-emerald-50">Creating with clarity</div>
+                <div className="font-semibold uppercase tracking-widest text-emerald-50">
+                  Creating with clarity
+                </div>
                 <p className="mt-2">
-                  UI Design, Photography, Videography, and Events. Four ways I tell stories with intention.
+                  UI Design, Photography, Videography, Events, and Interactive media. Five ways I tell stories with intention.
                 </p>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <div className="font-semibold uppercase tracking-widest text-emerald-50">UI Design</div>
-                  <p className="mt-2">It consist of Case studies, Typography, and clickable prototypes .</p>
-                </div>
-                <div>
-                  <div className="font-semibold uppercase tracking-widest text-emerald-50">Photography</div>
-                  <p className="mt-2">I’ve captured aesthetic moments, wide open landscapes, and professional headshots.</p>
-                </div>
-                <div>
-                  <div className="font-semibold uppercase tracking-widest text-emerald-50">Videography</div>
-                  <p className="mt-2">I’ve created short films, choreographed dance videos, and fast paced travel reels.</p>
-                </div>
-                <div>
-                  <div className="font-semibold uppercase tracking-widest text-emerald-50">Events</div>
-                  <p className="mt-2">A glimpse of the events I’ve volunteered at and organized.</p>
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Cards row (white cards with emerald headers) */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {[
-            { img: imgEvent, tag: 'UI Design', num: '01', to: '/portfolio/ui-design' },
-            { img: imgLandscape, tag: 'Photography', num: '02', to: '/portfolio/photography' },
-            { img: imgTravel, tag: 'Videography', num: '03', to: '/portfolio/videography' },
-            { img: imgPortrait, tag: 'Events', num: '04', to: '/portfolio/events' },
-          ].map((c) => (
+        {/* Cards row */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {cards.map((c) => (
             <Link
               key={c.num}
               to={c.to}
@@ -69,14 +56,16 @@ export default function Portfolio() {
             >
               <article className="rounded-md bg-white text-emerald-900 shadow-sm ring-1 ring-emerald-900/5 overflow-hidden transition-transform duration-200 ease-out group-hover:-translate-y-1 group-hover:shadow-lg group-hover:ring-emerald-300/60">
                 <div className="flex items-center justify-between px-4 py-3 bg-emerald-50 border-b border-emerald-200/70">
-                  <div className="font-extrabold uppercase tracking-widest text-emerald-800">{c.tag}</div>
+                  <div className="font-extrabold uppercase tracking-widest text-emerald-800">
+                    {c.tag}
+                  </div>
                   <div className="font-extrabold text-emerald-700">{c.num}</div>
                 </div>
                 <div className="h-[220px] w-full">
                   <img
                     src={c.img}
                     alt={c.tag}
-                    className="h-full w-full object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                    className="h-full w-full object-cover object-top transition-transform duration-200 ease-out group-hover:scale-[1.02]"
                   />
                 </div>
               </article>
@@ -84,8 +73,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* page number / marker */}
-        <div className="py-8 text-center text-emerald-100/80"></div>
+        <div className="py-8 text-center text-emerald-100/80" />
       </div>
     </section>
   )

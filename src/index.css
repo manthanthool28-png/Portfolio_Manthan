@@ -26,9 +26,38 @@
   .hero-contrast-light { background-color: rgb(0 0 0 / 0.20); }
 }
 
+/* === Animations for Home hero === */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
 
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in-up 0.6s ease-out both;
+  }
 
+  .animate-bounce-slow {
+    animation: bounce-slow 1.6s ease-in-out infinite;
+  }
 
-/* Optional: a soft overlay for readability if needed on long pages
-   .page-veil { background-color: rgb(0 0 0 / 0.06); } */
+  /* handwritten signature font */
+  .font-signature {
+    font-family: 'Great Vibes', cursive;
+  }
+}

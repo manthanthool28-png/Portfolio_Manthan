@@ -48,6 +48,7 @@ export default function About() {
                       { title: 'TuteDude Design Hackathon', label: 'Winner', year: '2022' },
                       { title: 'Design Fusion Hackathon', label: 'Top 5', year: '2023' },
                       { title: 'IFP Design Hackathon', label: 'Top 20', year: '2024' },
+                      { title: 'UL Hackathon', label: 'Special Designer Award and Second Place', year: '2025' },
                     ].map((a) => (
                       <div key={a.title} className="grid grid-cols-[1fr_auto] items-baseline gap-3">
                         <div>
