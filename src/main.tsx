@@ -21,6 +21,7 @@ import Events from './pages/portfolio/Events'
 import InteractiveMedia from './pages/portfolio/InteractiveMedia'
 import InteractiveMediaSoundscape from './pages/portfolio/InteractiveMediaSoundscape' // NEW
 import InteractiveMediaReflectivePiece from './pages/portfolio/InteractiveMediaReflectivePiece'
+import InteractiveVideoReflection from './pages/portfolio/InteractiveVideoReflection' // NEW
 
 import CaseStudyPDF from './features/blog/CaseStudyPDF'
 
@@ -44,6 +45,7 @@ const router = createHashRouter([
       { path: 'portfolio/events', element: <Events /> },
       { path: 'portfolio/interactive-media', element: <InteractiveMedia /> },
       { path: 'portfolio/interactive-media/reflective-piece', element: <InteractiveMediaReflectivePiece /> },
+      { path: 'portfolio/interactive-media/video-reflection', element: <InteractiveVideoReflection /> },
 
       // NEW: Algorithmic Soundscape video page
       {

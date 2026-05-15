@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom'
 
 export default function InteractiveMedia() {
-  // ===== Projects Data =====
   const projects = [
     {
       type: 'Performance Video',
@@ -16,13 +15,17 @@ export default function InteractiveMedia() {
       desc: 'A contemplative piece reflecting on the process, insights, and takeaways from the interactive performance project.',
       to: '/portfolio/interactive-media/reflective-piece',
     },
+    {
+      type: 'Detachable Kaleidoscope',
+      title: 'Process Video & Reflection',
+      desc: 'A dedicated page with the final video and a written reflection on my role, workflow, and what I learned from the project.',
+      to: '/portfolio/interactive-media/video-reflection',
+    },
   ]
 
   return (
     <section className="w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-12">
-
-        {/* Back link */}
         <Link
           to="/portfolio"
           className="text-emerald-100 hover:text-white text-sm uppercase tracking-wide"
@@ -30,7 +33,6 @@ export default function InteractiveMedia() {
           ← Back to Portfolio
         </Link>
 
-        {/* Header */}
         <div className="mt-6 grid gap-10 lg:grid-cols-12 items-start">
           <div className="lg:col-span-6">
             <div className="pt-2 pb-6 pr-6">
@@ -62,58 +64,31 @@ export default function InteractiveMedia() {
           </div>
         </div>
 
-        {/* ===== Projects Grid ===== */}
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => {
-            // Check if project has a link
-            if (project.to && project.to.length > 0) {
-              return (
-                <Link
-                  key={project.title}
-                  to={project.to}
-                  className="rounded-xl bg-emerald-900/70 border border-emerald-700/60 p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60 cursor-pointer"
-                >
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
-                      {project.type}
-                    </div>
-                    <h2 className="mt-3 text-lg font-semibold text-emerald-50">
-                      {project.title}
-                    </h2>
-                    <p className="mt-2 text-[13px] text-emerald-100/85 leading-relaxed">
-                      {project.desc}
-                    </p>
-                  </div>
-                </Link>
-              )
-            } else {
-              return (
-                <div
-                  key={project.title}
-                  className="rounded-xl bg-emerald-900/70 border border-emerald-700/60 p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60"
-                >
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
-                      {project.type}
-                    </div>
-                    <h2 className="mt-3 text-lg font-semibold text-emerald-50">
-                      {project.title}
-                    </h2>
-                    <p className="mt-2 text-[13px] text-emerald-100/85 leading-relaxed">
-                      {project.desc}
-                    </p>
-                  </div>
+          {projects.map((project) => (
+            <Link
+              key={project.title}
+              to={project.to}
+              className="rounded-xl bg-emerald-900/70 border border-emerald-700/60 p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/60 cursor-pointer"
+            >
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
+                  {project.type}
                 </div>
-              )
-            }
-          })}
+                <h2 className="mt-3 text-lg font-semibold text-emerald-50">
+                  {project.title}
+                </h2>
+                <p className="mt-2 text-[13px] text-emerald-100/85 leading-relaxed">
+                  {project.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
 
-        {/* Footer note */}
         <div className="py-8 text-center text-emerald-100/80 text-xs">
           More interactive pieces coming soon.
         </div>
-
       </div>
     </section>
   )
