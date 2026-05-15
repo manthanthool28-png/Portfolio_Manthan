@@ -25,7 +25,7 @@ export default function InteractiveMediaReflectivePiece() {
                     Overview
                   </h2>
                   <p className="mt-2 opacity-90">
-                    Detachable Kaleidoscope was a group interactive sculpture project that combined physical construction with digital interaction through sound, logic, and audience engagement.
+                    A group interactive sculpture project combining physical making, sound, and digital response.
                   </p>
                 </div>
 
@@ -34,7 +34,7 @@ export default function InteractiveMediaReflectivePiece() {
                     My contribution
                   </h2>
                   <p className="mt-2 opacity-90">
-                    I worked on the concept, full wiring, Arduino setup, Pure Data patch, and the main system logic that connected the sculpture to its interactive response.
+                    I developed the concept, completed the wiring, built the Arduino setup, created the Pure Data patch, and shaped the main interaction logic.
                   </p>
                 </div>
 
@@ -43,7 +43,7 @@ export default function InteractiveMediaReflectivePiece() {
                     Reflection
                   </h2>
                   <p className="mt-2 opacity-90">
-                    This project helped me understand how important it is for concept and technical execution to work together. As part of a group project, I was proud to build the interactive backbone of the piece and also contribute to the final video presentation.
+                    This project strengthened my understanding of how technical systems and creative ideas must work together. I was proud to help build the interactive core of the piece and support its final video presentation.
                   </p>
                 </div>
               </div>
