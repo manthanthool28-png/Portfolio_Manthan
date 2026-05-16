@@ -2,6 +2,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import TopNav from './components/Navbar'
 import Footer from './components/Footer'
+import HiddenAdminTrigger from './components/HiddenAdminTrigger'
 
 export default function App() {
   const location = useLocation()
@@ -29,6 +30,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <HiddenAdminTrigger />
     </div>
   )
 }

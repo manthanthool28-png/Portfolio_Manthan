@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from './app/store'
 import './index.css'
 
+
 import App from './App'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -19,13 +20,15 @@ import Photography from './pages/portfolio/Photography'
 import Videography from './pages/portfolio/Videography'
 import Events from './pages/portfolio/Events'
 import InteractiveMedia from './pages/portfolio/InteractiveMedia'
-import InteractiveMediaSoundscape from './pages/portfolio/InteractiveMediaSoundscape' // NEW
+import InteractiveMediaSoundscape from './pages/portfolio/InteractiveMediaSoundscape'
 import InteractiveMediaReflectivePiece from './pages/portfolio/InteractiveMediaReflectivePiece'
-import InteractiveVideoReflection from './pages/portfolio/InteractiveVideoReflection' // NEW
+import InteractiveVideoReflection from './pages/portfolio/InteractiveVideoReflection'
 
 import CaseStudyPDF from './features/blog/CaseStudyPDF'
+import AdminLogin from './pages/AdminLogin'
+import ControlRoom from './pages/ControlRoom'
+import ProtectedAdminRoute from './admin/ProtectedAdminRoute'
 
-// 👇 Hash router
 const router = createHashRouter([
   {
     path: '/',
@@ -38,23 +41,36 @@ const router = createHashRouter([
       { path: 'blog/:id', element: <BlogDetail /> },
       { path: 'contact', element: <Contact /> },
 
-      // Portfolio detail pages
       { path: 'portfolio/ui-design', element: <UiDesign /> },
       { path: 'portfolio/photography', element: <Photography /> },
       { path: 'portfolio/videography', element: <Videography /> },
       { path: 'portfolio/events', element: <Events /> },
       { path: 'portfolio/interactive-media', element: <InteractiveMedia /> },
-      { path: 'portfolio/interactive-media/reflective-piece', element: <InteractiveMediaReflectivePiece /> },
-      { path: 'portfolio/interactive-media/video-reflection', element: <InteractiveVideoReflection /> },
-
-      // NEW: Algorithmic Soundscape video page
+      {
+        path: 'portfolio/interactive-media/reflective-piece',
+        element: <InteractiveMediaReflectivePiece />,
+      },
+      {
+        path: 'portfolio/interactive-media/video-reflection',
+        element: <InteractiveVideoReflection />,
+      },
       {
         path: 'portfolio/interactive-media/soundscape',
         element: <InteractiveMediaSoundscape />,
       },
 
-      // Blog case study
       { path: 'blog/case-study', element: <CaseStudyPDF /> },
+      { path: 'admin-login', element: <AdminLogin /> },
+      { path: 'control-room', element: <ControlRoom /> },
+      { path: 'admin-login', element: <AdminLogin /> },
+{
+  path: 'control-room',
+  element: (
+    <ProtectedAdminRoute>
+      <ControlRoom />
+    </ProtectedAdminRoute>
+  ),
+},
     ],
   },
 ])
