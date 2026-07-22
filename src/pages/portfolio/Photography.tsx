@@ -1,8 +1,9 @@
 // src/pages/portfolio/Photography.tsx
 import { Link } from 'react-router-dom'
 import AestheticImg from '../../assets/Aesthetic.jpg'
-import HeadshotImg from '../../assets/h4.jpg'
 import WorkspaceImg from '../../assets/p2.jpg'
+
+const HeadshotImg = `${import.meta.env.BASE_URL}assets/h3.jpg`
 
 const photoProjects = [
   {

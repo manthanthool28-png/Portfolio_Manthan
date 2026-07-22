@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 
 // images from src/assets
 import AestheticImg from '../assets/Aesthetic.jpg'
-import HeadshotImg from '../assets/h4.jpg'
 import PassionImg from '../assets/p2.jpg'
 import ShowreelImg from '../assets/showreel-thumb.jpg'
+
+const HeadshotImg = `${import.meta.env.BASE_URL}assets/h3.jpg`
 
 const posts = [
   {
