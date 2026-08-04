@@ -170,6 +170,20 @@ export default function BlogDetail() {
     '😍': 0,
   })
 
+  const dragging = useRef(false)
+  const last = useRef({ x: 0, y: 0 })
+
+  const imgStyle = useMemo(
+    () => ({
+      transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
+      transformOrigin: 'center center',
+      maxHeight: '90vh',
+      maxWidth: '95vw',
+      objectFit: 'contain' as const,
+    }),
+    [scale, translate]
+  )
+
   if (!post) {
     return (
       <section className="w-full">
@@ -199,9 +213,6 @@ export default function BlogDetail() {
     setScale((s) => Math.min(5, Math.max(1, s * factor)))
   }
 
-  const dragging = useRef(false)
-  const last = useRef({ x: 0, y: 0 })
-
   const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
     dragging.current = true
     last.current = { x: e.clientX, y: e.clientY }
@@ -225,17 +236,6 @@ export default function BlogDetail() {
     setScale(1)
     setTranslate({ x: 0, y: 0 })
   }
-
-  const imgStyle = useMemo(
-    () => ({
-      transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
-      transformOrigin: 'center center',
-      maxHeight: '90vh',
-      maxWidth: '95vw',
-      objectFit: 'contain' as const,
-    }),
-    [scale, translate]
-  )
 
   const openBtsFullscreen = (index: number) => {
     setFullscreenImage(btsImages[index].src)
@@ -284,8 +284,8 @@ export default function BlogDetail() {
                     Film details
                   </h2>
                   <ul className="mt-2 space-y-1 opacity-90">
-                    {post.imageDescriptions.map((line) => (
-                      <li key={line} className="text-[13px]">
+                    {post.imageDescriptions.map((line, index) => (
+                      <li key={index} className="text-[13px]">
                         {line}
                       </li>
                     ))}
@@ -682,7 +682,7 @@ export default function BlogDetail() {
 
           <div className="flex-1 bg-emerald-950/95">
             <iframe
-              src="/assets/tough-tape-case-study.pdf"
+              src={`${import.meta.env.BASE_URL}assets/tough-tape-case-study.pdf`}
               title="Tough Tape Case Study"
               className="w-full h-full"
             />

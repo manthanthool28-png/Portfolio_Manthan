@@ -56,22 +56,22 @@ const blogSlice = createSlice({
   name: 'blog',
   initialState,
   reducers: {
-    addBlogPost(state: { posts: any[] }, action: PayloadAction<BlogPost>) {
+    addBlogPost(state: BlogState, action: PayloadAction<BlogPost>) {
       state.posts.push(action.payload)
     },
     addComment(
-      state: { posts: any[] },
+      state: BlogState,
       action: PayloadAction<{ postId: string; comment: Comment }>
     ) {
-      const post = state.posts.find((p: { id: any }) => p.id === action.payload.postId)
+      const post = state.posts.find((p) => p.id === action.payload.postId)
       if (post) post.comments.push(action.payload.comment)
     },
     reactToComment(
-      state: { posts: any[] },
+      state: BlogState,
       action: PayloadAction<{ postId: string; commentId: string; emoji: Emoji }>
     ) {
-      const post = state.posts.find((p: { id: any }) => p.id === action.payload.postId)
-      const comment = post?.comments.find((c: { id: any }) => c.id === action.payload.commentId)
+      const post = state.posts.find((p) => p.id === action.payload.postId)
+      const comment = post?.comments.find((c) => c.id === action.payload.commentId)
       if (comment) {
         comment.reactions[action.payload.emoji] =
           (comment.reactions[action.payload.emoji] ?? 0) + 1
