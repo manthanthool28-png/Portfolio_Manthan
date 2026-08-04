@@ -61,16 +61,14 @@ const router = createHashRouter([
 
       { path: 'blog/case-study', element: <CaseStudyPDF /> },
       { path: 'admin-login', element: <AdminLogin /> },
-      { path: 'control-room', element: <ControlRoom /> },
-      { path: 'admin-login', element: <AdminLogin /> },
-{
-  path: 'control-room',
-  element: (
-    <ProtectedAdminRoute>
-      <ControlRoom />
-    </ProtectedAdminRoute>
-  ),
-},
+      {
+        path: 'control-room',
+        element: (
+          <ProtectedAdminRoute>
+            <ControlRoom />
+          </ProtectedAdminRoute>
+        ),
+      },
     ],
   },
 ])

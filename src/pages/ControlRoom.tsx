@@ -131,7 +131,7 @@ export default function ControlRoom() {
         return <div key={index} className="h-2" />
       }
 
-      let formatted = line
+      const formatted = line
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
 
