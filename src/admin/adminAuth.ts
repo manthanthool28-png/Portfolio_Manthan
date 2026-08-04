@@ -1,6 +1,6 @@
 let unlocked = false
 
-export const ADMIN_PASSWORD = 'Manthan@2026Admin'
+export const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD as string
 
 export function isAdminUnlocked() {
   return unlocked
